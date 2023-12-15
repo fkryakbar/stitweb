@@ -11,7 +11,7 @@
 <body class="bg-slate-50">
     <section class="h-screen flex justify-center items-center">
         <div class="rounded-md border-[1px] border-gray-200 py-4 p-4 lg:w-[400px] w-full bg-white mx-3 shadow-md">
-            <img class="w-[100px] mx-auto my-5" src="{{ Vite::asset('resources/assets/main-logo.png') }}" alt="Logo">
+            <img class="w-[100px] mx-auto my-5" src="{{ asset('assets/main-logo.png') }}" alt="Logo">
             <h1 class="font-bold text-2xl text-center">ADMIN LOGIN</h1>
             <form class="my-4" action="" method="POST" autocomplete="off">
                 @csrf
