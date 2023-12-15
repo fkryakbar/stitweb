@@ -28,7 +28,7 @@ class Category extends Component
     public function render()
     {
         return view('livewire.web.category', [
-            'posts' => Post::where('category_id', $this->category->id)->latest()->paginate()
+            'posts' => Post::where('category_id', $this->category->id)->latest()->paginate(10)
         ]);
     }
 }
