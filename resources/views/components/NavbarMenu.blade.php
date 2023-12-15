@@ -38,4 +38,5 @@
         <li><a wire:navigate>Visi dan Misi</a></li>
         <li><a wire:navigate>Profil Singkat</a></li>
     </ul>
+
 </div>

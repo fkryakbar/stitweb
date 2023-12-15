@@ -46,4 +46,5 @@
             Copyright © 2023 | STIT ASSUNNYYAH TAMBARANGAN
         </p>
     </div>
+
 </section>

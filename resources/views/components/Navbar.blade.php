@@ -28,4 +28,5 @@
             <x-navbarmenu />
         </div>
     </div>
+
 </nav>
