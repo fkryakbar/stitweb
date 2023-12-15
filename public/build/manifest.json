@@ -1,4 +1,14 @@
 {
+  "resources/assets/logo.png": {
+    "file": "assets/logo-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/assets/logo.png"
+  },
+  "resources/assets/main-logo.png": {
+    "file": "assets/main-logo-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/assets/main-logo.png"
+  },
   "resources/css/app.css": {
     "file": "assets/app-cd459f99.css",
     "isEntry": true,
