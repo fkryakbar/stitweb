@@ -1,6 +1,6 @@
 <a href="/" wire:navigate>Beranda</a>
 <a href="/category/berita" wire:navigate>Berita</a>
-<a href="/akademik" wire:navigate>Akademik</a>
+<a href="/read/program-studi" wire:navigate>Akademik</a>
 <div class="dropdown dropdown-end">
     <div class="flex items-center gap-1" tabindex="0" role="button">
         Penerimaan
@@ -35,8 +35,8 @@
         </svg>
     </div>
     <ul class="dropdown-content z-[1] menu p-2 drop-shadow bg-green-700 rounded w-[300px]">
-        <li><a wire:navigate>Visi dan Misi</a></li>
-        <li><a wire:navigate>Profil Singkat</a></li>
+        <li><a wire:navigate href="/read/visi-dan-misi">Visi dan Misi</a></li>
+        <li><a wire:navigate href="/read/profil-singkat">Profil Singkat</a></li>
     </ul>
 
 </div>
