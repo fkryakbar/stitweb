@@ -5,12 +5,13 @@
                 <h3 class="font-semibold text-white text-2xl">Tautan</h3>
                 <hr class="w-[50px] mt-2 border-white border-[1px]">
                 <div class="mt-3 flex flex-col gap-2">
-                    <a href="" class="font-semibold">Beranda</a>
-                    <a href="" class="font-semibold">Berita</a>
-                    <a href="" class="font-semibold">Akademik</a>
-                    <a href="" class="font-semibold">SIAMAD</a>
-                    <a href="" class="font-semibold">Penerimaan Mahasiswa Baru</a>
-                    <a href="" class="font-semibold">Profil Singkat</a>
+                    <a href="" class="font-semibold" wire:navigate>Beranda</a>
+                    <a href="/category/berita" class="font-semibold" wire:navigate>Berita</a>
+                    <a href="/read/program-studi" class="font-semibold" wire:navigate>Akademik</a>
+                    <a href="https://siamad.stitastbr.ac.id" class="font-semibold" wire:navigate>SIAMAD</a>
+                    <a href="https://pmb.stitastbr.ac.id" class="font-semibold" wire:navigate>Penerimaan Mahasiswa
+                        Baru</a>
+                    <a href="/read/profil-singkat" class="font-semibold" wire:navigate>Profil Singkat</a>
                 </div>
             </div>
             <div>
