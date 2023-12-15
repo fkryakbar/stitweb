@@ -2,7 +2,7 @@
     <div class="lg:flex justify-between items-center lg:w-[80%] mx-auto w-[95%] pt-1">
         <div class="flex justify-between items-center">
             <a class="btn btn-ghost" href="/" wire:navigate>
-                <img src="{{ Vite::asset('resources/assets/logo.png') }}" alt="logo" class="w-[150px]">
+                <img src="{{ asset('assets/logo.png') }}" alt="logo" class="w-[150px]">
             </a>
             <div class="mr-3 text-white lg:hidden block">
                 <button class="btn btn-ghost" x-on:click="open=!open">

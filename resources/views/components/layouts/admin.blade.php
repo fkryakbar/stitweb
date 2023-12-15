@@ -51,7 +51,7 @@
                             </svg>
                         </button>
                         <a href="/" class="text-xl font-bold flex items-center lg:ml-2.5 gap-3">
-                            <img src="{{ Vite::asset('resources/assets/main-logo.png') }}" class="w-[35px]" />
+                            <img src="{{ asset('assets/main-logo.png') }}" class="w-[35px]" />
                             <span class="self-center
                                 whitespace-nowrap">Admin
                                 Page</span>
