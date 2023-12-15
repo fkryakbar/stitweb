@@ -54,7 +54,7 @@
                         <h2 class="text-xl font-bold text-green-600">
                             {{ $post->title }}
                         </h2>
-                        <p class="text-sm text-slate-500 mt-2">
+                        <p class="text-sm text-slate-500 mt-2 line-clamp-3">
                             {{ $post->description }}
                         </p>
                     </div>
@@ -89,7 +89,7 @@
                         <p class="text-slate-400">
                             {{ \Carbon\Carbon::parse($p->created_at)->translatedFormat('j F Y') }}
                         </p>
-                        <p class="text-sm text-slate-500 mt-2">
+                        <p class="text-sm text-slate-500 mt-2 line-clamp-3">
                             {{ $p->description }}
                         </p>
                     </div>

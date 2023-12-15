@@ -5,7 +5,7 @@
                 <h3 class="font-semibold text-white text-2xl">Tautan</h3>
                 <hr class="w-[50px] mt-2 border-white border-[1px]">
                 <div class="mt-3 flex flex-col gap-2">
-                    <a href="" class="font-semibold" wire:navigate>Beranda</a>
+                    <a href="/" class="font-semibold" wire:navigate>Beranda</a>
                     <a href="/category/berita" class="font-semibold" wire:navigate>Berita</a>
                     <a href="/read/program-studi" class="font-semibold" wire:navigate>Akademik</a>
                     <a href="https://siamad.stitastbr.ac.id" class="font-semibold" wire:navigate>SIAMAD</a>
