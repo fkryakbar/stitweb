@@ -10,7 +10,7 @@
         </div>
         <div class="absolute w-full">
             <div class="mt-10 flex flex-col p-5 items-center">
-                <img width="150px" src="{{ Vite::asset('resources/assets/main-logo.png') }}" class="ml-auto mr-auto">
+                <img width="150px" src="{{ Vite::image('resources/assets/main-logo.png') }}" class="ml-auto mr-auto">
                 <div class="lg:w-[70%] ml-auto mr-auto mt-4 text-center">
                     <h1 class="text-3xl lg:text-5xl font-bold text-white">SELAMAT DATANG
                     </h1>
