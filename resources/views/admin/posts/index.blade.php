@@ -40,6 +40,22 @@
                     });
                 </script>
             @endif
+            <div class="flex justify-end">
+                <div class="mb-4">
+                    <form action="">
+                        <div class="join">
+                            <div>
+                                <div>
+                                    <input class="input input-bordered join-item w-full" placeholder="Search"
+                                        name="search" required />
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="btn join-item bg-green-500 text-white hover:bg-green-700">Cari</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="overflow-x-auto" x-show="!isAddPost">
                 <table class="table">
                     <!-- head -->

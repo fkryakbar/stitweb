@@ -30,6 +30,10 @@
         </div>
     </section>
     <div class="lg:w-[60%] w-[95%] mx-auto mt-10">
+        @if (Str::length($search_query) >= 3)
+            <p class="text-sm text-gray-700 mb-2">Search Result for <span class="font-bold">{{ $search_query }}</span>
+            </p>
+        @endif
         <p class="text-sm text-gray-700 leading-5">
             {!! __('Showing') !!}
             <span class="font-medium">{{ $posts->firstItem() }}</span>
@@ -43,7 +47,7 @@
     <section class="lg:w-[60%] w-[95%] mx-auto flex lg:flex-row flex-col gap-5 relative mt-5">
         <div class="basis-[70%] flex flex-col gap-4">
             @foreach ($posts as $post)
-                <a wire:navigate href="/read/{{ $post->slug }}">
+                <a wire:key='{{ $post->id }}' wire:navigate href="/read/{{ $post->slug }}">
                     <div class="flex lg:flex-row flex-col gap-4">
                         @if ($post->image_path)
                             <div class="basis-[30%]">

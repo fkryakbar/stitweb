@@ -11,10 +11,13 @@ use Illuminate\Support\Str;
 
 class PostsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::all();
         $posts = Post::with('category')->latest()->paginate();
+        if ($request->search) {
+            $posts = Post::where('title', 'like', "%" . $request->search . "%")->orWhere('description', 'like', "%" . $request->search . "%")->orWhere('content', 'like', "%" . $request->search . "%")->with('category')->latest()->paginate();
+        }
         return view('admin.posts.index', compact('categories', 'posts'));
     }
 
