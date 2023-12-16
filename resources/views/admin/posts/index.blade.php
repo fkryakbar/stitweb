@@ -143,7 +143,8 @@
                                 <span class="label-text">Title</span>
                             </div>
                             <input type="text" name="title" placeholder="Post Title"
-                                class="input input-bordered w-full @error('title') input-error @enderror " />
+                                class="input input-bordered w-full @error('title') input-error @enderror "
+                                value="{{ old('title') }}" />
                             @error('title')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
@@ -156,7 +157,8 @@
                                 <span class="label-text">Description</span>
                             </div>
                             <input type="text" name="description" placeholder="Post description"
-                                class="input input-bordered w-full @error('description') input-error @enderror " />
+                                class="input input-bordered w-full @error('description') input-error @enderror "
+                                value="{{ old('description') }}" />
                             @error('description')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
@@ -179,7 +181,8 @@
                                 class="select select-bordered w-full @error('category_id') select-error @enderror">
                                 <option disabled selected>Select a category</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}" @selected(old('category_id') == $category->id)>
+                                        {{ $category->name }}</option>
                                 @endforeach
                             </select>
                             @error('category_id')
@@ -194,7 +197,7 @@
                                 <span class="label-text">Content</span>
                             </div>
                         </label>
-                        <div id="editor"></div>
+                        <div id="editor">{!! old('content') !!}</div>
                         @error('content')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror

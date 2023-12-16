@@ -160,7 +160,8 @@
                                 <span class="label-text">Name</span>
                             </div>
                             <input type="text" name="name" placeholder="Category Name"
-                                class="input input-bordered w-full max-w-xs @error('name') input-error @enderror " />
+                                class="input input-bordered w-full max-w-xs @error('name') input-error @enderror"
+                                value="{{ old('name') }}" />
                             @error('name')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
