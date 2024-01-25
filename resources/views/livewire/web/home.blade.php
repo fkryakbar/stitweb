@@ -46,7 +46,7 @@
                         <div
                             class="absolute bottom-[-15px] bg-amber-400 p-2 rounded translate-x-[50%] right-[50%] text-xs font-bold text-white">
                             <p class="text-center">
-                                {{ \Carbon\Carbon::parse($post->created_at)->translatedFormat('j F Y') }}
+                                {{ $post->readable_time_format() }}
                             </p>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                             {{ $p->title }}
                         </h2>
                         <p class="text-slate-400">
-                            {{ \Carbon\Carbon::parse($p->created_at)->translatedFormat('j F Y') }}
+                            {{ $p->readable_time_format() }}
                         </p>
                         <p class="text-sm text-slate-500 mt-2 line-clamp-3">
                             {{ $p->description }}
