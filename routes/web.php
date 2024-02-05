@@ -21,6 +21,10 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::post('/login', [AuthController::class, 'login']);
 
 
+Route::get('/administrator/login', function () {
+    return redirect()->route('login');
+})->name('filament.admin.auth.login');
+
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
