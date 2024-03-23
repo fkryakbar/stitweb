@@ -14,4 +14,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: cd stit_backend && git pull && composer install --optimize-autoloader --no-dev && php artisan route:clear && php artisan config:clear && php artisan migrate
+          script: cd stit_backend && git pull && composer install --optimize-autoloader --no-dev && php artisan route:clear && php artisan config:clear && php artisan migrate && php artisan cache:clear
