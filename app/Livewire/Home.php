@@ -16,11 +16,11 @@ class Home extends Component
     public function render()
     {
 
-        $posts = Cache::remember('posts-limit-3', now()->addDays(7), function () {
+        $posts = Cache::remember('posts-limit-3', now()->addDays(5), function () {
             return Post::where('category_id', 1)->latest()->limit(3)->get();
         });
 
-        $pengumuman = Cache::remember('pengumuman-limit-3', now()->addDays(7), function () {
+        $pengumuman = Cache::remember('pengumuman-limit-3', now()->addDays(5), function () {
             return Post::where('category_id', 2)->latest()->limit(3)->get();
         });
 
