@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Jobs\IncrementViews;
 use App\Models\Post;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Attributes\Layout;
@@ -14,9 +15,6 @@ class ReadPost extends Component
     public function mount($slug)
     {
         $this->slug = $slug;
-        $post = Post::where('slug', $this->slug)->firstOrFail();
-
-        $post->increment('views', 1);
     }
 
     #[Layout('components.layouts.web')]
@@ -30,6 +28,9 @@ class ReadPost extends Component
                 $query->where('is_public', true);
             }])->firstOrFail();
         });
+
+        IncrementViews::dispatch($slug);
+
         return view('livewire.web.read-post', [
             'post' => $post,
         ]);

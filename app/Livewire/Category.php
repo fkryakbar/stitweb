@@ -35,10 +35,12 @@ class Category extends Component
     #[Layout('components.layouts.web')]
     public function render()
     {
+
         $posts = Post::where('category_id', $this->category->id)->latest()->paginate(10);
         if (Str::length($this->search_query) >= 3) {
             $posts = Post::where('title', 'like', "%" . $this->search_query . "%")->orWhere('description', 'like', "%" . $this->search_query . "%")->orWhere('content', 'like', "%" . $this->search_query . "%")->latest()->paginate(10);
         }
+
         return view('livewire.web.category', [
             'posts' => $posts
         ]);
