@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Cache;
 
 class IncrementViews implements ShouldQueue
 {
@@ -29,9 +30,12 @@ class IncrementViews implements ShouldQueue
      */
     public function handle(): void
     {
-        $post = Post::where('slug', $this->slug)->first();
+        $post = Post::where('slug', $this->slug)->with(['category', 'comments' => function ($query) {
+            $query->where('is_public', true);
+        }])->first();
         if ($post) {
             $post->increment('views', 1);
+            Cache::put('read-post-' . $this->slug, $post, now()->addDays(7));
         }
     }
 }

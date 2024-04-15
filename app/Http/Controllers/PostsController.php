@@ -6,11 +6,20 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostsController extends Controller
 {
+
+    private function recache()
+    {
+        Cache::put('random-posts', Post::inRandomOrder()->take(5)->get(), now()->addDays(1));
+        Cache::put('posts-limit-3', Post::where('category_id', 1)->latest()->limit(3)->get(), now()->addDays(5));
+        Cache::put('pengumuman-limit-3', Post::where('category_id', 2)->latest()->limit(3)->get(), now()->addDays(5));
+    }
+
     public function index(Request $request)
     {
         $categories = Category::all();
@@ -48,7 +57,14 @@ class PostsController extends Controller
             'views' => 0
         ]);
 
-        Post::create($request->except(['thumbnail']));
+        $post = Post::create($request->except(['thumbnail']));
+
+        $post = Post::where('slug', $post->slug)->with(['category', 'comments' => function ($query) {
+            $query->where('is_public', true);
+        }])->firstOrFail();
+
+        Cache::put('read-post-' . $post->slug, $post, now()->addDays(7));
+        $this->recache();
 
         return back()->with('success', 'Post Created Successfully');
     }
@@ -91,6 +107,14 @@ class PostsController extends Controller
 
         $post->update($request->except(['thumbnail', 'is_delete_thumbnail']));
 
+
+        $post = Post::where('slug', $post->slug)->with(['category', 'comments' => function ($query) {
+            $query->where('is_public', true);
+        }])->firstOrFail();
+
+        Cache::put('read-post-' . $post->slug, $post, now()->addDays(7));
+        $this->recache();
+
         return back()->with('success', 'Post updated successfully');
     }
 
@@ -100,7 +124,10 @@ class PostsController extends Controller
         if ($post->image_path) {
             Storage::delete($post->image_path);
         }
+        Cache::forget('read-post-' . $post->slug);
         $post->delete();
+        $this->recache();
+
         return back()->with('success', 'Post deleted successfully');
     }
 }
